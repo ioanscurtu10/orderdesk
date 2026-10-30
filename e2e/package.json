@@ -1,0 +1,14 @@
+{
+  "name": "@orderdesk/e2e",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Playwright end-to-end suite that runs the same scenarios against the Vue and the React app.",
+  "scripts": {
+    "test": "playwright test",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@orderdesk/shared": "*"
+  }
+}

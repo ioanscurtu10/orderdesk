@@ -1,0 +1,25 @@
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+.od-tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+.od-mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.85em;
+}
+
+.od-chart {
+  height: 320px;
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  .od-chart {
+    height: 260px;
+  }
+}

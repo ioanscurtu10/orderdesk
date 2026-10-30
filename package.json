@@ -1,0 +1,51 @@
+{
+  "name": "orderdesk",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "OrderDesk - B2B order management demo implemented twice (Vue 3 + Vuetify, React + MUI) on a shared mock API.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.19"
+  },
+  "workspaces": [
+    "packages/*",
+    "apps/*",
+    "e2e"
+  ],
+  "scripts": {
+    "dev": "concurrently -n api,vue,react -c cyan,green,blue \"npm run dev -w @orderdesk/api\" \"npm run dev -w @orderdesk/vue-app\" \"npm run dev -w @orderdesk/react-app\"",
+    "dev:api": "npm run dev -w @orderdesk/api",
+    "dev:vue": "npm run dev -w @orderdesk/vue-app",
+    "dev:react": "npm run dev -w @orderdesk/react-app",
+    "build": "npm run build --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test -c e2e/playwright.config.ts",
+    "test:e2e:ui": "playwright test -c e2e/playwright.config.ts --ui",
+    "screenshots": "tsx scripts/screenshots.ts",
+    "ci": "npm run lint && npm run typecheck && npm run test && npm run build"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.0",
+    "@playwright/test": "1.63.0",
+    "@types/node": "^22.20.0",
+    "concurrently": "^9.2.0",
+    "eslint": "^9.39.0",
+    "eslint-plugin-react-hooks": "^7.1.0",
+    "eslint-plugin-react-refresh": "^0.5.0",
+    "eslint-plugin-vue": "^10.12.0",
+    "globals": "^17.0.0",
+    "jsdom": "^26.1.0",
+    "prettier": "^3.6.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0",
+    "typescript-eslint": "^8.46.0",
+    "vitest": "^3.2.0",
+    "vue-eslint-parser": "^10.2.0"
+  }
+}

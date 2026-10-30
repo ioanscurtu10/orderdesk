@@ -1,0 +1,28 @@
+# Render Blueprint for the mock API (https://render.com/docs/blueprint-spec).
+# New > Blueprint in the Render dashboard, pick this repository, and Render creates the service.
+services:
+  - type: web
+    name: orderdesk-api
+    runtime: node
+    plan: free
+    region: frankfurt
+    buildCommand: npm ci
+    startCommand: npm run start -w @orderdesk/api
+    healthCheckPath: /api/health
+    autoDeploy: true
+    buildFilter:
+      paths:
+        - packages/**
+        - package.json
+        - package-lock.json
+    envVars:
+      - key: NODE_VERSION
+        value: '22'
+      # Signs the session tokens. Render generates a random value once.
+      - key: TOKEN_SECRET
+        generateValue: true
+      # Visitors share one dataset; put it back to the seeded state every hour.
+      - key: RESET_EVERY_MINUTES
+        value: '60'
+      - key: API_DELAY_MS
+        value: '100'

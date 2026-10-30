@@ -1,0 +1,228 @@
+{
+  "app": {
+    "name": "OrderDesk",
+    "tagline": "Administrare comenzi B2B",
+    "loading": "Se încarcă…",
+    "retry": "Reîncearcă",
+    "cancel": "Anulează",
+    "save": "Salvează",
+    "delete": "Șterge",
+    "edit": "Editează",
+    "close": "Închide",
+    "confirm": "Confirmă",
+    "back": "Înapoi",
+    "actions": "Acțiuni",
+    "search": "Caută",
+    "reset": "Resetează",
+    "apply": "Aplică",
+    "yes": "Da",
+    "no": "Nu",
+    "export": "Export",
+    "import": "Import",
+    "columns": "Coloane",
+    "noData": "Nimic de afișat",
+    "noResults": "Nicio comandă nu corespunde filtrelor.",
+    "errorTitle": "A apărut o eroare",
+    "errorGeneric": "Cererea a eșuat. Încearcă din nou.",
+    "forbidden": "Nu ai permisiunea pentru această acțiune.",
+    "sessionExpired": "Sesiunea a expirat. Autentifică-te din nou.",
+    "unsavedTitle": "Renunți la modificări?",
+    "unsavedBody": "Ai modificări nesalvate. Dacă părăsești pagina, se vor pierde.",
+    "leave": "Părăsește",
+    "stay": "Rămâi",
+    "theme": "Temă",
+    "language": "Limbă",
+    "lightMode": "Mod luminos",
+    "darkMode": "Mod întunecat",
+    "signOut": "Deconectare",
+    "copied": "Copiat în clipboard"
+  },
+  "nav": {
+    "dashboard": "Panou",
+    "orders": "Comenzi",
+    "import": "Import",
+    "newOrder": "Comandă nouă"
+  },
+  "login": {
+    "title": "Autentificare",
+    "subtitle": "Folosește unul dintre conturile demo de mai jos.",
+    "email": "Email",
+    "password": "Parolă",
+    "submit": "Intră în cont",
+    "invalid": "Email sau parolă greșite.",
+    "demoAdmin": "Administrator (acces complet)",
+    "demoViewer": "Vizualizare (doar citire)",
+    "useAccount": "Folosește"
+  },
+  "dashboard": {
+    "title": "Panou",
+    "range": "Perioadă",
+    "presets": {
+      "last30": "Ultimele 30 de zile",
+      "last90": "Ultimele 90 de zile",
+      "thisYear": "Anul curent",
+      "last12m": "Ultimele 12 luni",
+      "all": "Tot istoricul"
+    },
+    "from": "De la",
+    "to": "Până la",
+    "kpi": {
+      "revenue": "Venituri",
+      "orders": "Comenzi",
+      "avgOrderValue": "Valoare medie comandă",
+      "openOrders": "Comenzi deschise"
+    },
+    "charts": {
+      "revenueByMonth": "Venituri pe lună",
+      "topCustomers": "Top clienți",
+      "statusBreakdown": "Comenzi după status",
+      "revenue": "Venituri",
+      "orders": "Comenzi"
+    }
+  },
+  "orders": {
+    "title": "Comenzi",
+    "count": "{count} comenzi",
+    "selected": "{count} selectate",
+    "new": "Comandă nouă",
+    "searchPlaceholder": "Caută după număr, client sau note",
+    "filters": {
+      "status": "Status",
+      "dateFrom": "Data comenzii de la",
+      "dateTo": "Data comenzii până la",
+      "minTotal": "Total minim",
+      "maxTotal": "Total maxim",
+      "customer": "Client"
+    },
+    "columns": {
+      "number": "Număr",
+      "customerName": "Client",
+      "status": "Status",
+      "orderDate": "Data comenzii",
+      "dueDate": "Scadență",
+      "lineCount": "Linii",
+      "subtotal": "Subtotal",
+      "vatAmount": "TVA",
+      "total": "Total",
+      "updatedAt": "Actualizat",
+      "actions": ""
+    },
+    "bulk": {
+      "changeStatus": "Schimbă statusul",
+      "delete": "Șterge selecția",
+      "deleteTitle": "Ștergi {count} comenzi?",
+      "deleteBody": "Acțiunea nu poate fi anulată.",
+      "statusUpdated": "{count} comenzi actualizate",
+      "deleted": "{count} comenzi șterse"
+    },
+    "exportCsv": "Export CSV (server)",
+    "exportXlsx": "Export XLSX",
+    "exportDone": "Exportul este gata",
+    "copyLink": "Copiază linkul acestei vederi",
+    "rowsPerPage": "Rânduri pe pagină",
+    "pageInfo": "{from}–{to} din {total}"
+  },
+  "status": {
+    "draft": "Ciornă",
+    "confirmed": "Confirmată",
+    "shipped": "Expediată",
+    "delivered": "Livrată",
+    "cancelled": "Anulată"
+  },
+  "order": {
+    "title": "Comanda {number}",
+    "newTitle": "Comandă nouă",
+    "editTitle": "Editare comanda {number}",
+    "notFound": "Comanda nu există",
+    "tabs": {
+      "details": "Detalii",
+      "lines": "Linii",
+      "history": "Istoric",
+      "documents": "Documente"
+    },
+    "fields": {
+      "number": "Număr",
+      "customer": "Client",
+      "status": "Status",
+      "orderDate": "Data comenzii",
+      "dueDate": "Scadență",
+      "notes": "Note",
+      "currency": "Monedă",
+      "createdAt": "Creată",
+      "updatedAt": "Ultima actualizare",
+      "customerSearch": "Tastează pentru a căuta clienți",
+      "location": "Localitate"
+    },
+    "lines": {
+      "title": "Liniile comenzii",
+      "product": "Produs",
+      "sku": "SKU",
+      "quantity": "Cant.",
+      "unitPrice": "Preț unitar",
+      "discount": "Discount %",
+      "lineTotal": "Total linie",
+      "add": "Adaugă linie",
+      "remove": "Șterge linia",
+      "productSearch": "Tastează pentru a căuta produse"
+    },
+    "totals": {
+      "subtotal": "Subtotal",
+      "vat": "TVA {rate}%",
+      "total": "Total"
+    },
+    "history": {
+      "created": "Creată",
+      "updated": "Actualizată",
+      "status_changed": "Status schimbat",
+      "imported": "Importată",
+      "by": "de {name}"
+    },
+    "documents": {
+      "invoice": "Factură (PDF)",
+      "invoiceHint": "Generată în browser din datele curente ale comenzii.",
+      "download": "Descarcă"
+    },
+    "changeStatus": "Schimbă statusul",
+    "saved": "Comanda a fost salvată",
+    "created": "Comanda {number} a fost creată",
+    "statusChanged": "Status schimbat în {status}",
+    "deleteTitle": "Ștergi această comandă?",
+    "deleted": "Comanda a fost ștearsă"
+  },
+  "import": {
+    "title": "Import comenzi",
+    "intro": "Încarcă un fișier CSV. Un rând pentru fiecare linie de comandă, rândurile cu același ref devin o singură comandă.",
+    "chooseFile": "Alege fișierul CSV",
+    "downloadTemplate": "Descarcă șablonul",
+    "preview": "Previzualizare",
+    "validRows": "{count} rânduri valide",
+    "invalidRows": "{count} rânduri cu erori",
+    "ordersToCreate": "{count} comenzi vor fi create",
+    "run": "Importă {count} comenzi",
+    "row": "Rând",
+    "errors": "Erori",
+    "result": "Import finalizat: {imported} create, {skipped} omise",
+    "serverErrors": "Erori de pe server",
+    "noFile": "Niciun fișier selectat încă."
+  },
+  "validation": {
+    "required": "Obligatoriu",
+    "email": "Introdu un email valid",
+    "date": "Introdu data în format AAAA-LL-ZZ",
+    "integer": "Trebuie să fie un număr întreg",
+    "positive": "Trebuie să fie mai mare decât 0",
+    "nonNegative": "Nu poate fi negativ",
+    "percent": "Trebuie să fie între 0 și 100",
+    "maxLength": "Prea lung",
+    "atLeastOneLine": "Adaugă cel puțin o linie",
+    "dueAfterOrder": "Scadența trebuie să fie în sau după data comenzii",
+    "customerNotFound": "Clientul nu există"
+  },
+  "errors": {
+    "403": "Acces interzis",
+    "403Body": "Contul tău nu are acces la această pagină.",
+    "404": "Pagina nu există",
+    "404Body": "Pagina pe care o cauți nu există.",
+    "goHome": "Mergi la panou"
+  }
+}

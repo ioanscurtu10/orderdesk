@@ -1,0 +1,228 @@
+{
+  "app": {
+    "name": "OrderDesk",
+    "tagline": "B2B order management",
+    "loading": "Loading…",
+    "retry": "Retry",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close",
+    "confirm": "Confirm",
+    "back": "Back",
+    "actions": "Actions",
+    "search": "Search",
+    "reset": "Reset",
+    "apply": "Apply",
+    "yes": "Yes",
+    "no": "No",
+    "export": "Export",
+    "import": "Import",
+    "columns": "Columns",
+    "noData": "Nothing to show",
+    "noResults": "No orders match these filters.",
+    "errorTitle": "Something went wrong",
+    "errorGeneric": "The request failed. Please try again.",
+    "forbidden": "You do not have permission to do that.",
+    "sessionExpired": "Your session has expired. Please sign in again.",
+    "unsavedTitle": "Discard changes?",
+    "unsavedBody": "You have unsaved changes. If you leave this page they will be lost.",
+    "leave": "Leave",
+    "stay": "Stay",
+    "theme": "Theme",
+    "language": "Language",
+    "lightMode": "Light mode",
+    "darkMode": "Dark mode",
+    "signOut": "Sign out",
+    "copied": "Copied to clipboard"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "orders": "Orders",
+    "import": "Import",
+    "newOrder": "New order"
+  },
+  "login": {
+    "title": "Sign in",
+    "subtitle": "Use one of the demo accounts below.",
+    "email": "Email",
+    "password": "Password",
+    "submit": "Sign in",
+    "invalid": "Invalid email or password.",
+    "demoAdmin": "Admin (full access)",
+    "demoViewer": "Viewer (read-only)",
+    "useAccount": "Use"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "range": "Period",
+    "presets": {
+      "last30": "Last 30 days",
+      "last90": "Last 90 days",
+      "thisYear": "This year",
+      "last12m": "Last 12 months",
+      "all": "All time"
+    },
+    "from": "From",
+    "to": "To",
+    "kpi": {
+      "revenue": "Revenue",
+      "orders": "Orders",
+      "avgOrderValue": "Avg. order value",
+      "openOrders": "Open orders"
+    },
+    "charts": {
+      "revenueByMonth": "Revenue by month",
+      "topCustomers": "Top customers",
+      "statusBreakdown": "Orders by status",
+      "revenue": "Revenue",
+      "orders": "Orders"
+    }
+  },
+  "orders": {
+    "title": "Orders",
+    "count": "{count} orders",
+    "selected": "{count} selected",
+    "new": "New order",
+    "searchPlaceholder": "Search number, customer or notes",
+    "filters": {
+      "status": "Status",
+      "dateFrom": "Order date from",
+      "dateTo": "Order date to",
+      "minTotal": "Min total",
+      "maxTotal": "Max total",
+      "customer": "Customer"
+    },
+    "columns": {
+      "number": "Number",
+      "customerName": "Customer",
+      "status": "Status",
+      "orderDate": "Order date",
+      "dueDate": "Due date",
+      "lineCount": "Lines",
+      "subtotal": "Subtotal",
+      "vatAmount": "VAT",
+      "total": "Total",
+      "updatedAt": "Updated",
+      "actions": ""
+    },
+    "bulk": {
+      "changeStatus": "Change status",
+      "delete": "Delete selected",
+      "deleteTitle": "Delete {count} orders?",
+      "deleteBody": "This cannot be undone.",
+      "statusUpdated": "{count} orders updated",
+      "deleted": "{count} orders deleted"
+    },
+    "exportCsv": "Export CSV (server)",
+    "exportXlsx": "Export XLSX",
+    "exportDone": "Export ready",
+    "copyLink": "Copy link to this view",
+    "rowsPerPage": "Rows per page",
+    "pageInfo": "{from}–{to} of {total}"
+  },
+  "status": {
+    "draft": "Draft",
+    "confirmed": "Confirmed",
+    "shipped": "Shipped",
+    "delivered": "Delivered",
+    "cancelled": "Cancelled"
+  },
+  "order": {
+    "title": "Order {number}",
+    "newTitle": "New order",
+    "editTitle": "Edit order {number}",
+    "notFound": "Order not found",
+    "tabs": {
+      "details": "Details",
+      "lines": "Lines",
+      "history": "History",
+      "documents": "Documents"
+    },
+    "fields": {
+      "number": "Number",
+      "customer": "Customer",
+      "status": "Status",
+      "orderDate": "Order date",
+      "dueDate": "Due date",
+      "notes": "Notes",
+      "currency": "Currency",
+      "createdAt": "Created",
+      "updatedAt": "Last updated",
+      "customerSearch": "Type to search customers",
+      "location": "Location"
+    },
+    "lines": {
+      "title": "Order lines",
+      "product": "Product",
+      "sku": "SKU",
+      "quantity": "Qty",
+      "unitPrice": "Unit price",
+      "discount": "Discount %",
+      "lineTotal": "Line total",
+      "add": "Add line",
+      "remove": "Remove line",
+      "productSearch": "Type to search products"
+    },
+    "totals": {
+      "subtotal": "Subtotal",
+      "vat": "VAT {rate}%",
+      "total": "Total"
+    },
+    "history": {
+      "created": "Created",
+      "updated": "Updated",
+      "status_changed": "Status changed",
+      "imported": "Imported",
+      "by": "by {name}"
+    },
+    "documents": {
+      "invoice": "Invoice (PDF)",
+      "invoiceHint": "Generated in the browser from the current order data.",
+      "download": "Download"
+    },
+    "changeStatus": "Change status",
+    "saved": "Order saved",
+    "created": "Order {number} created",
+    "statusChanged": "Status changed to {status}",
+    "deleteTitle": "Delete this order?",
+    "deleted": "Order deleted"
+  },
+  "import": {
+    "title": "Import orders",
+    "intro": "Upload a CSV file. One row per order line, rows with the same ref become one order.",
+    "chooseFile": "Choose CSV file",
+    "downloadTemplate": "Download template",
+    "preview": "Preview",
+    "validRows": "{count} valid rows",
+    "invalidRows": "{count} rows with errors",
+    "ordersToCreate": "{count} orders will be created",
+    "run": "Import {count} orders",
+    "row": "Row",
+    "errors": "Errors",
+    "result": "Import finished: {imported} created, {skipped} skipped",
+    "serverErrors": "Server-side errors",
+    "noFile": "No file selected yet."
+  },
+  "validation": {
+    "required": "Required",
+    "email": "Enter a valid email",
+    "date": "Enter a date as YYYY-MM-DD",
+    "integer": "Must be a whole number",
+    "positive": "Must be greater than 0",
+    "nonNegative": "Cannot be negative",
+    "percent": "Must be between 0 and 100",
+    "maxLength": "Too long",
+    "atLeastOneLine": "Add at least one line",
+    "dueAfterOrder": "Due date must be on or after the order date",
+    "customerNotFound": "Customer does not exist"
+  },
+  "errors": {
+    "403": "Forbidden",
+    "403Body": "Your account does not have access to this page.",
+    "404": "Page not found",
+    "404Body": "The page you are looking for does not exist.",
+    "goHome": "Go to dashboard"
+  }
+}

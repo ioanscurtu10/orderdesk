@@ -1,0 +1,26 @@
+{
+  "name": "@orderdesk/api",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Mock REST API: Express 5, in-memory dataset seeded deterministically with faker, signed tokens, role checks.",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "start": "tsx src/index.ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^10.0.0",
+    "@orderdesk/shared": "*",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "zod": "^4.1.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/supertest": "^6.0.3",
+    "supertest": "^7.1.0"
+  }
+}

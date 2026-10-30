@@ -1,0 +1,27 @@
+{
+  "name": "@orderdesk/shared",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Domain types, zod schemas, pure query/total logic, design tokens and i18n messages shared by the API and both front-ends.",
+  "exports": {
+    ".": "./src/index.ts",
+    "./i18n/ro": "./src/i18n/ro.json",
+    "./i18n/en": "./src/i18n/en.json",
+    "./browser": "./src/browser/index.ts"
+  },
+  "types": "./src/index.ts",
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "zod": "^4.1.0",
+    "jspdf": "^3.0.0",
+    "jspdf-autotable": "^5.0.2",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.0"
+  }
+}

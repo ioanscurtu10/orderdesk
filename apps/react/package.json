@@ -1,0 +1,51 @@
+{
+  "name": "@orderdesk/react-app",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "OrderDesk front-end in React 19, TypeScript, React Router, TanStack Query, Zustand, React Hook Form + zod, MUI + MUI X Data Grid, i18next.",
+  "scripts": {
+    "dev": "vite --port 5174 --strictPort",
+    "build": "tsc -p tsconfig.app.json --noEmit && vite build",
+    "preview": "vite preview --port 5174 --strictPort",
+    "typecheck": "tsc -p tsconfig.app.json --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@hookform/resolvers": "^5.2.0",
+    "@mui/icons-material": "^7.3.0",
+    "@mui/material": "^7.3.0",
+    "@mui/x-data-grid": "^8.10.0",
+    "@orderdesk/shared": "*",
+    "@tanstack/react-query": "^5.85.0",
+    "axios": "^1.12.0",
+    "echarts": "^5.6.0",
+    "echarts-for-react": "^3.0.2",
+    "i18next": "^25.4.0",
+    "jspdf": "^3.0.0",
+    "jspdf-autotable": "^5.0.2",
+    "papaparse": "^5.5.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-hook-form": "^7.62.0",
+    "react-i18next": "^15.7.0",
+    "react-router": "^7.8.0",
+    "xlsx": "^0.18.5",
+    "zod": "^4.1.0",
+    "zustand": "^5.0.8"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.8.0",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/papaparse": "^5.3.16",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "jsdom": "^26.1.0",
+    "vite": "^7.1.0",
+    "vitest": "^3.2.0"
+  }
+}

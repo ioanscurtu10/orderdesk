@@ -1,0 +1,50 @@
+html {
+  overflow-y: auto;
+}
+
+/* Vuetify sets its own font stack; override once at the root so every component inherits Inter. */
+.v-application {
+  font-family:
+    'Inter',
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    sans-serif !important;
+}
+
+.od-page {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.od-tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+.od-row-link {
+  cursor: pointer;
+}
+
+.od-mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.85em;
+}
+
+.od-kpi-value {
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.od-chart {
+  height: 320px;
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  .od-chart {
+    height: 260px;
+  }
+}
