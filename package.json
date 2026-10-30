@@ -4,6 +4,15 @@
   "version": "1.0.0",
   "type": "module",
   "description": "OrderDesk - B2B order management demo implemented twice (Vue 3 + Vuetify, React + MUI) on a shared mock API.",
+  "author": "Ioan Scurtu",
+  "homepage": "https://orderdesk-vue.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ioanscurtu10/orderdesk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ioanscurtu10/orderdesk/issues"
+  },
   "license": "MIT",
   "engines": {
     "node": ">=20.19"
@@ -45,7 +54,7 @@
     "tsx": "^4.20.0",
     "typescript": "^5.9.0",
     "typescript-eslint": "^8.46.0",
-    "vitest": "^3.2.0",
+    "vitest": "^4.1.12",
     "vue-eslint-parser": "^10.2.0"
   }
 }

@@ -9,10 +9,7 @@ test.describe('mobile layout', () => {
     await ui.login('admin')
     // Drawer is off-screen on phones; the nav item becomes reachable through the menu button.
     await expect(page.getByTestId('nav-orders')).not.toBeInViewport()
-    await page
-      .getByRole('button', { name: /dashboard|menu/i })
-      .first()
-      .click()
+    await page.getByRole('button', { name: 'Menu', exact: true }).click()
     await expect(page.getByTestId('nav-orders')).toBeInViewport()
     await page.getByTestId('nav-orders').click()
     await expect(ui.rows().first()).toBeVisible()

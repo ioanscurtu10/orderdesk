@@ -141,11 +141,7 @@ export function AppShell() {
         >
           <Toolbar variant="dense" sx={{ minHeight: 56, gap: 1 }}>
             {mobile && (
-              <IconButton
-                edge="start"
-                onClick={() => setOpen(true)}
-                aria-label={t('nav.dashboard')}
-              >
+              <IconButton edge="start" onClick={() => setOpen(true)} aria-label={t('nav.menu')}>
                 <MenuIcon />
               </IconButton>
             )}
@@ -213,10 +209,7 @@ export function AppShell() {
           </Toolbar>
         </AppBar>
 
-        <Container
-          maxWidth={false}
-          sx={{ maxWidth: 1400, py: { xs: 2, md: 3 }, px: { xs: 2, md: 3 } }}
-        >
+        <Container maxWidth={false} sx={{ py: { xs: 2, md: 3 }, px: { xs: 2, md: 3 } }}>
           <Outlet />
         </Container>
       </Box>

@@ -72,7 +72,7 @@ function signOut(): void {
   </v-navigation-drawer>
 
   <v-app-bar flat border="b" density="comfortable">
-    <v-app-bar-nav-icon v-if="mobile" :aria-label="$t('nav.dashboard')" @click="drawer = !drawer" />
+    <v-app-bar-nav-icon v-if="mobile" :aria-label="$t('nav.menu')" @click="drawer = !drawer" />
     <v-app-bar-title class="text-body-1 font-weight-medium">
       {{ $route.meta.titleKey ? $t($route.meta.titleKey) : $t('app.name') }}
     </v-app-bar-title>

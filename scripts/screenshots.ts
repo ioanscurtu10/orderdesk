@@ -30,7 +30,7 @@ async function settle(page: Page, ms = 1200): Promise<void> {
 const browser = await chromium.launch()
 for (const app of APPS) {
   const page = await browser.newPage({ viewport: { width: 1400, height: 900 }, locale: 'en-GB' })
-  // Force a known theme/language regardless of the machine running the script.
+  // Force English regardless of the language of the machine running the script.
   await page.addInitScript(() => {
     localStorage.setItem('orderdesk.locale', JSON.stringify('en'))
   })

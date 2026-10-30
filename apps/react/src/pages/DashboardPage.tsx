@@ -17,10 +17,11 @@ import ReactEChartsCore from 'echarts-for-react/lib/core'
 import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import {
-  addDays,
   chartPalette,
+  DASHBOARD_PRESETS,
+  presetRange,
   statusColors,
-  todayIso,
+  type DashboardPreset,
   type DashboardRange,
 } from '@orderdesk/shared'
 import { useDashboard } from '@/api/queries'
@@ -40,30 +41,13 @@ echarts.use([
   LegendComponent,
 ])
 
-type Preset = 'last30' | 'last90' | 'thisYear' | 'last12m' | 'all'
-const presets: Preset[] = ['last30', 'last90', 'thisYear', 'last12m', 'all']
-
-function presetRange(p: Preset): DashboardRange {
-  const today = todayIso()
-  switch (p) {
-    case 'last30':
-      return { dateFrom: addDays(today, -30), dateTo: today }
-    case 'last90':
-      return { dateFrom: addDays(today, -90), dateTo: today }
-    case 'thisYear':
-      return { dateFrom: `${today.slice(0, 4)}-01-01`, dateTo: today }
-    case 'last12m':
-      return { dateFrom: addDays(today, -365), dateTo: today }
-    case 'all':
-      return { dateFrom: '2000-01-01', dateTo: today }
-  }
-}
+const presets = DASHBOARD_PRESETS
 
 export default function DashboardPage() {
   const { t } = useTranslation()
   const fmt = useFormat()
   const isDark = useUiStore((s) => s.theme === 'dark')
-  const [preset, setPreset] = useState<Preset>('last12m')
+  const [preset, setPreset] = useState<DashboardPreset>('last12m')
   const [range, setRange] = useState<DashboardRange>(() => presetRange('last12m'))
   const { data, isPending, isFetching, error, refetch } = useDashboard(range)
 
@@ -205,14 +189,15 @@ export default function DashboardPage() {
             />
           ))}
         </Stack>
-        <Stack direction="row" gap={1}>
+        {/* 170px fields on wide screens; they shrink together on narrow phones. */}
+        <Stack direction="row" gap={1} sx={{ flex: '0 1 348px', minWidth: 0 }}>
           <TextField
             type="date"
             label={t('dashboard.from')}
             value={range.dateFrom}
             onChange={(e) => setRange({ ...range, dateFrom: e.target.value })}
             slotProps={{ inputLabel: { shrink: true } }}
-            sx={{ width: 170 }}
+            sx={{ flex: '1 1 0', minWidth: 0 }}
           />
           <TextField
             type="date"
@@ -220,7 +205,7 @@ export default function DashboardPage() {
             value={range.dateTo}
             onChange={(e) => setRange({ ...range, dateTo: e.target.value })}
             slotProps={{ inputLabel: { shrink: true } }}
-            sx={{ width: 170 }}
+            sx={{ flex: '1 1 0', minWidth: 0 }}
           />
         </Stack>
       </Stack>

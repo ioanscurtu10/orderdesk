@@ -86,8 +86,3 @@ export function ordersToCsv(items: readonly OrderListItem[]): string {
   const body = items.map((o) => EXPORT_COLUMNS.map((c) => csvEscape(o[c.key])).join(','))
   return [header, ...body].join('\r\n')
 }
-
-/** Rows ready for SheetJS (array of plain objects with the human headers as keys). */
-export function ordersToSheetRows(items: readonly OrderListItem[]): Array<Record<string, unknown>> {
-  return items.map((o) => Object.fromEntries(EXPORT_COLUMNS.map((c) => [c.header, o[c.key]])))
-}

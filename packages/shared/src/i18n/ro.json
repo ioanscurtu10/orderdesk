@@ -38,6 +38,7 @@
     "copied": "Copiat în clipboard"
   },
   "nav": {
+    "menu": "Meniu",
     "dashboard": "Panou",
     "orders": "Comenzi",
     "import": "Import",

@@ -38,6 +38,7 @@
     "copied": "Copied to clipboard"
   },
   "nav": {
+    "menu": "Menu",
     "dashboard": "Dashboard",
     "orders": "Orders",
     "import": "Import",

@@ -7,10 +7,11 @@ import { computed, onMounted, ref, watch } from 'vue'
 import VChart from 'vue-echarts'
 import { useI18n } from 'vue-i18n'
 import {
-  addDays,
   chartPalette,
+  DASHBOARD_PRESETS,
+  presetRange,
   statusColors,
-  todayIso,
+  type DashboardPreset,
   type DashboardRange,
 } from '@orderdesk/shared'
 import { statsApi } from '@/api'
@@ -34,25 +35,8 @@ const { t } = useI18n()
 const ui = useUiStore()
 const fmt = useFormat()
 
-type Preset = 'last30' | 'last90' | 'thisYear' | 'last12m' | 'all'
-const presets: Preset[] = ['last30', 'last90', 'thisYear', 'last12m', 'all']
-const preset = ref<Preset>('last12m')
-
-function presetRange(p: Preset): DashboardRange {
-  const today = todayIso()
-  switch (p) {
-    case 'last30':
-      return { dateFrom: addDays(today, -30), dateTo: today }
-    case 'last90':
-      return { dateFrom: addDays(today, -90), dateTo: today }
-    case 'thisYear':
-      return { dateFrom: `${today.slice(0, 4)}-01-01`, dateTo: today }
-    case 'last12m':
-      return { dateFrom: addDays(today, -365), dateTo: today }
-    case 'all':
-      return { dateFrom: '2000-01-01', dateTo: today }
-  }
-}
+const presets = DASHBOARD_PRESETS
+const preset = ref<DashboardPreset>('last12m')
 
 const range = ref<DashboardRange>(presetRange(preset.value))
 const { data, loading, error, run } = useAsync(() => statsApi.dashboard(range.value))
@@ -172,20 +156,21 @@ const statusOption = computed(() => ({
           $t(`dashboard.presets.${p}`)
         }}</v-chip>
       </v-chip-group>
-      <div class="d-flex ga-2">
+      <!-- 170px fields on wide screens; they shrink together on narrow phones. -->
+      <div class="d-flex ga-2" style="flex: 0 1 348px; min-width: 0">
         <v-text-field
           v-model="range.dateFrom"
           type="date"
           :label="$t('dashboard.from')"
           density="compact"
-          style="width: 170px"
+          style="flex: 1 1 0; min-width: 0"
         />
         <v-text-field
           v-model="range.dateTo"
           type="date"
           :label="$t('dashboard.to')"
           density="compact"
-          style="width: 170px"
+          style="flex: 1 1 0; min-width: 0"
         />
       </div>
     </div>
