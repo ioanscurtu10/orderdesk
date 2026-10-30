@@ -1,14 +1,17 @@
 # OrderDesk
 
-B2B order management, built twice on the same mock API: once in **Vue 3 + Vuetify**, once in **React + MUI**. Same design, same features, same end-to-end test suite. The point of the repository is to show production-style front-end work on the kind of screens business users live in all day: dashboards, data grids with thousands of rows, multi-step forms, imports, exports.
+[![CI](https://github.com/ioanscurtu10/orderdesk/actions/workflows/ci.yml/badge.svg)](https://github.com/ioanscurtu10/orderdesk/actions/workflows/ci.yml)
 
-**Live demo:** [Vue app](https://orderdesk-vue.vercel.app) · [React app](https://orderdesk-react.vercel.app). Sign in with one of the demo accounts shown on the login screen. The API runs on a free instance: if nobody has used it for a while, the first request can take up to a minute. The data is shared by all visitors and resets every hour.
+B2B order management, built twice on the same mock API: once in **Vue 3 + Vuetify**, once in **React + MUI**. Same design, same features, same end-to-end test suite. The point of the repository is to show production-style front-end work on the kind of screens business users live in all day: dashboards, data grids with thousands of rows, forms with dynamic lines, imports, exports.
 
-| Vue 3 · Vuetify                                        | React 19 · MUI                                             |
-| ------------------------------------------------------ | ---------------------------------------------------------- |
-| ![Vue dashboard](docs/screenshots/vue-dashboard.png)   | ![React dashboard](docs/screenshots/react-dashboard.png)   |
-| ![Vue orders grid](docs/screenshots/vue-orders.png)    | ![React orders grid](docs/screenshots/react-orders.png)    |
-| ![Vue order form](docs/screenshots/vue-order-form.png) | ![React order form](docs/screenshots/react-order-form.png) |
+**Live demo:** [Vue app](https://orderdesk-vue.vercel.app) · [React app](https://orderdesk-react.vercel.app). Sign in with one of the demo accounts shown on the login screen. The API runs on a free Render instance that an uptime monitor keeps awake; if it does fall asleep, the first request can take up to a minute. The data is shared by all visitors and resets every hour.
+
+| Vue 3 · Vuetify                                            | React 19 · MUI                                                 |
+| ---------------------------------------------------------- | -------------------------------------------------------------- |
+| ![Vue dashboard](docs/screenshots/vue-dashboard.png)       | ![React dashboard](docs/screenshots/react-dashboard.png)       |
+| ![Vue orders grid](docs/screenshots/vue-orders.png)        | ![React orders grid](docs/screenshots/react-orders.png)        |
+| ![Vue order detail](docs/screenshots/vue-order-detail.png) | ![React order detail](docs/screenshots/react-order-detail.png) |
+| ![Vue order form](docs/screenshots/vue-order-form.png)     | ![React order form](docs/screenshots/react-order-form.png)     |
 
 Dark mode, both apps: [Vue](docs/screenshots/vue-dashboard-dark.png) · [React](docs/screenshots/react-dashboard-dark.png)
 
@@ -16,30 +19,32 @@ Dark mode, both apps: [Vue](docs/screenshots/vue-dashboard-dark.png) · [React](
 
 - **Authentication and roles**: signed tokens with expiry, `admin` and `viewer` roles, route guards, a 403 page, automatic sign-out with a notice when the API answers 401.
 - **Dashboard**: four KPIs and three charts (revenue by month, orders by status, top customers) driven by a date range with presets.
-- **Orders grid** on 10,000 seeded orders: server-side paging, sorting and filtering (text search, multi-status, date range, total range), configurable columns remembered per user, multi-select with bulk status change (optimistic) and bulk delete, and grid state kept in the URL so a view can be shared by link.
+- **Orders grid** on 10,000 seeded orders: server-side paging, sorting and filtering (text search, multi-status, date range, total range), column visibility remembered in the browser, multi-select with an optimistic bulk status change and bulk delete, and grid state kept in the URL so a view can be shared by link.
 - **Order form**: customer and product autocompletes backed by the API, async validation (the customer must exist), dynamic lines with live totals, zod validation shared with the server, and an "unsaved changes" guard for both in-app navigation and browser close.
 - **Order detail**: tabs for details, lines, history timeline and documents; status change; PDF invoice generated in the browser.
-- **Import**: CSV upload with client-side preview, per-row errors, grouping of lines into orders, then a server-side import that reports what was created and what was skipped.
-- **Export**: CSV streamed by the server for the current filter, XLSX built in the browser from the same rows.
-- **UX states**: skeletons, empty and error states with retry, toasts, confirm dialogs, responsive down to 360 px, light and dark theme, Romanian and English.
+- **Import**: downloadable CSV template, client-side preview with per-row errors, grouping of lines into orders, then a server-side import that reports what was created and what was skipped.
+- **Export**: CSV generated by the server for the current filter; XLSX built in the browser from the same filtered rows, or only from the selected ones.
+- **UX states**: skeletons, empty and error states with retry, toasts, confirm dialogs, a responsive layout with a collapsible navigation drawer on phones, light and dark theme, Romanian and English.
 
 ## Stack
 
-| Layer        | Vue app                                 | React app                      |
-| ------------ | --------------------------------------- | ------------------------------ |
-| Build        | Vite 7, TypeScript 5 strict             | Vite 7, TypeScript 5 strict    |
-| UI           | Vuetify 3 (`v-data-table-server`)       | MUI 7 + MUI X Data Grid 8      |
-| Routing      | Vue Router 4                            | React Router 7                 |
-| Server state | Pinia store with request de-duplication | TanStack Query 5               |
-| Client state | Pinia                                   | Zustand 5                      |
-| Forms        | Vuetify rules + zod on submit           | React Hook Form + zod resolver |
-| Charts       | ECharts via vue-echarts                 | ECharts via echarts-for-react  |
-| i18n         | vue-i18n                                | i18next                        |
-| Unit tests   | Vitest + Vue Test Utils                 | Vitest + Testing Library       |
+| Layer        | Vue app                                   | React app                      |
+| ------------ | ----------------------------------------- | ------------------------------ |
+| Build        | Vite 7, TypeScript 5 strict               | Vite 7, TypeScript 5 strict    |
+| UI           | Vuetify 3 (`v-data-table-server`)         | MUI 7 + MUI X Data Grid 8      |
+| Routing      | Vue Router 4                              | React Router 7                 |
+| Server state | Pinia store that discards stale responses | TanStack Query 5               |
+| Client state | Pinia                                     | Zustand 5                      |
+| Forms        | Vuetify rules + zod on submit             | React Hook Form + zod resolver |
+| Charts       | ECharts via vue-echarts                   | ECharts via echarts-for-react  |
+| i18n         | vue-i18n                                  | i18next                        |
+| Unit tests   | Vitest + Vue Test Utils                   | Vitest + Testing Library       |
 
 Shared by both: `packages/shared` (types, zod schemas, the filter/sort/paginate logic, totals, CSV helpers, design tokens, translation files), `packages/api` (Express 5 mock server) and `e2e` (Playwright).
 
 ## Getting started
+
+Requires Node.js 22 (see `.nvmrc`).
 
 ```bash
 npm install
@@ -59,8 +64,10 @@ Other scripts:
 npm run test          # unit tests, all packages
 npm run test:e2e      # Playwright, both apps (starts the servers itself)
 npm run lint          # ESLint (TS, Vue, React hooks)
+npm run format:check  # Prettier
 npm run typecheck     # tsc / vue-tsc, all packages
 npm run build         # production builds of both apps
+npm run ci            # lint, typecheck, unit tests and build in one go
 npm run screenshots   # regenerates docs/screenshots (needs `npm run dev` running)
 ```
 
@@ -73,24 +80,24 @@ orderdesk/
 │  │  └─ src/browser  download, XLSX and PDF helpers (browser only, lazy-loaded)
 │  └─ api/           Express 5 mock API, deterministic faker dataset, signed tokens
 ├─ apps/
-│  ├─ vue/           Vue 3 + Vuetify implementation
-│  └─ react/         React + MUI implementation
+│  ├─ vue/           Vue 3 + Vuetify implementation (vercel.json for deployment)
+│  └─ react/         React + MUI implementation (vercel.json for deployment)
 ├─ e2e/              Playwright suite, parameterised by framework
-└─ .github/          CI: lint, typecheck, unit tests, build, e2e
+├─ .github/          CI: lint, format check, typecheck, unit tests, build, e2e
+└─ render.yaml       Render Blueprint for the API
 ```
 
 ```
- browser ──/api──▶ Vite dev proxy ──▶ Express (packages/api)
-                                        │
-                      ┌─────────────────┴─────────────────┐
-                      │ in-memory Store                   │
-                      │  queryOrders() ◀── packages/shared│
-                      │  computeTotals()   (same code the │
-                      │  validateImportRows() UIs run)    │
-                      └───────────────────────────────────┘
+Development:  browser --> Vite dev server --(/api proxy)----> Express API
+Production:   browser --> static app on Vercel --(VITE_API_URL)--> Express API on Render
+
+Express API (packages/api)
+  in-memory Store, seeded with faker
+  queryOrders(), computeTotals(), validateImportRows()
+    come from packages/shared: the same code the UIs and the unit tests run
 ```
 
-The API is intentionally in-memory and re-seeded on start (`faker.seed(42)`, 10,000 orders in ~300 ms). It behaves like a real backend where it matters for the front-end: pagination metadata, validation errors with paths, 401/403, artificial latency so loading states are visible, CSV streaming with a BOM so Excel opens it correctly.
+The API is intentionally in-memory and re-seeded on start (`faker.seed(42)`, 10,000 orders in ~300 ms). It behaves like a real backend where it matters for the front-end: pagination metadata, validation errors with paths, 401/403, artificial latency so loading states are visible, and a CSV export with a BOM so Excel shows diacritics correctly.
 
 ## Decisions
 
@@ -98,7 +105,7 @@ The API is intentionally in-memory and re-seeded on start (`faker.seed(42)`, 10,
 
 **The URL is the grid's state.** Page, sort, filters and search all live in the query string. Sharing a link reproduces the exact view, the browser back button works, and neither app needs a "grid state" store. Debounced inputs keep typing from spamming the router.
 
-**TanStack Query in React, Pinia in Vue.** The React app uses TanStack Query for caching, request cancellation, `keepPreviousData` (no flicker between pages) and an optimistic mutation for bulk status changes with rollback. The Vue app shows the same behaviour with a Pinia store and a request counter that drops out-of-order responses. The Vue version is deliberately dependency-light; TanStack Query also ships for Vue if a project wants the richer cache.
+**TanStack Query in React, Pinia in Vue.** The React app uses TanStack Query for caching, `keepPreviousData` (no flicker between pages) and an optimistic mutation for bulk status changes that cancels in-flight refetches and rolls back on error. The Vue app reaches the same behaviour with a Pinia store: a request counter discards out-of-order responses, and the bulk status change is optimistic with a rollback snapshot. The Vue version is deliberately dependency-light; TanStack Query also ships for Vue if a project wants the richer cache.
 
 **zod on both sides.** `orderInputSchema` validates in the browser (React Hook Form resolver, Vuetify rules plus a submit-time parse) and again in Express. Error messages are translation keys, so the same issue renders in Romanian or English wherever it surfaces.
 
@@ -112,8 +119,8 @@ The API is intentionally in-memory and re-seeded on start (`faker.seed(42)`, 10,
 
 ## Testing
 
-- **Unit** (`npm run test`): 51 tests. Shared logic (filtering, sorting, paging, URL round-trip, totals, schemas, CSV escaping), the API through supertest (auth, roles, validation, CRUD, bulk, import, dashboard), and component tests for the login flow and status chip in each app.
-- **End-to-end** (`npm run test:e2e`): 25 scenarios run against each app, plus a mobile viewport check, so 52 runs in total. They cover sign-in and redirects, role restrictions, expired tokens, grid filters from the UI and from a pasted URL, column visibility persistence, bulk status change, creating and editing orders with validation, the unsaved-changes guard, CSV and XLSX export, PDF download, CSV import with error reporting, and the language switch. Framework-specific selectors are isolated in `e2e/tests/fixtures.ts`; the scenarios are written once.
+- **Unit** (`npm run test`): 51 tests. Shared logic (filtering, sorting, paging, URL round-trip, totals, schemas, CSV escaping), the API through supertest (auth, roles, validation, CRUD, bulk, import, CSV export, dashboard), and component tests for the login flow and status chip in each app.
+- **End-to-end** (`npm run test:e2e`): 24 scenarios run against each app, plus a mobile layout check on a phone viewport for each, so 50 runs in total. They cover sign-in and redirects, role restrictions, expired tokens, grid filters from the UI and from a pasted URL, column visibility persistence, bulk status change, creating and editing orders with validation, the unsaved-changes guard, CSV and XLSX export, PDF download, CSV import with error reporting, and the language switch. Framework-specific selectors are isolated in `e2e/tests/fixtures.ts`; the scenarios are written once.
 
 ## Importing orders
 
@@ -131,7 +138,10 @@ One row per order line. Rows with the same `ref` become one order. Customer code
 | --------------------- | ----- | ----------------------- | ---------------------------------- |
 | `PORT`                | api   | `4000`                  | API port                           |
 | `API_DELAY_MS`        | api   | `150`                   | artificial latency (`0` in tests)  |
-| `ORDER_COUNT`         | api   | `10000`                 | dataset size                       |
+| `ORDER_COUNT`         | api   | `10000`                 | number of seeded orders            |
+| `CUSTOMER_COUNT`      | api   | `200`                   | number of seeded customers         |
+| `PRODUCT_COUNT`       | api   | `150`                   | number of seeded products          |
+| `SEED`                | api   | `42`                    | faker seed for the dataset         |
 | `TOKEN_TTL_MS`        | api   | 8 h                     | token lifetime                     |
 | `TOKEN_SECRET`        | api   | demo value              | secret that signs the tokens       |
 | `RESET_EVERY_MINUTES` | api   | `0` (never)             | reseed the dataset on a schedule   |
@@ -149,4 +159,4 @@ The repository is ready for the setup used by the live demo, both on free plans:
 
 ## License
 
-MIT
+MIT, see [LICENSE](LICENSE).
